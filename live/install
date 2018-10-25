@@ -1,0 +1,5 @@
+#!/bin/bash
+git clone https://github.com/danpaquin/gdax-python.git
+cd gdax-python
+python3 setup.py install
+cd ..
