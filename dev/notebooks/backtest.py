@@ -1,4 +1,4 @@
-import gdax
+import cbpro as gdax
 import numpy as np
 from datetime import datetime, timedelta
 from math import ceil

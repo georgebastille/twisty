@@ -1,4 +1,4 @@
-import gdax
+import cbpro as gdax
 
 from exchange import TwistyBook, PurchaseEngine
 from backtest import historic_prices

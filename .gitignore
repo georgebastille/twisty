@@ -1,3 +1,5 @@
 auth/
 *.pyc
 .DS_Store
+*.csv
+historic_data/

@@ -1,4 +1,4 @@
-import gdax
+import cbpro as gdax
 from decimal import Decimal
 from concurrent.futures import ThreadPoolExecutor
 
