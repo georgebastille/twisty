@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/richie/repo/twisty/dev/notebooks/cpts/512u80000p.ckpt"
+all_model_checkpoint_paths: "/home/richie/repo/twisty/dev/notebooks/cpts/512u80000p.ckpt"
