@@ -1,5 +1,0 @@
-#!/bin/bash
-cd logs
-python3 -m http.server&
-cd ..
-python3 twisty.py

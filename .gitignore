@@ -3,3 +3,4 @@ auth/
 .DS_Store
 *.csv
 historic_data/
+.ipynb_checkpoints/

@@ -1,12 +1,12 @@
-import gdax
+import cbpro as gdax
 
 from exchange import TwistyBook, PurchaseEngine
 from backtest import historic_prices
 from algorithms import get_PriceWatchOscillator
-from algorithms import get_StochasticOscillator
 
 from time import sleep, time
-from datetime import datetime, timedelta
+from datetime import datetime
+
 
 class Twisty():
     def __init__(self):
@@ -14,9 +14,9 @@ class Twisty():
         key_file = open('./auth/gdax.k', 'r')
         sec_file = open('./auth/gdax.s', 'r')
 
-        phrase = phrase_file.read().replace('\n','')
-        key = key_file.read().replace('\n','')
-        sec = sec_file.read().replace('\n','')
+        phrase = phrase_file.read().replace('\n', '')
+        key = key_file.read().replace('\n', '')
+        sec = sec_file.read().replace('\n', '')
 
         self.client = gdax.AuthenticatedClient(key, sec, phrase)
         self.log = open('./logs/index.html', 'w')
@@ -31,8 +31,10 @@ class Twisty():
         self.min_coin_transaction = 0.001
         self.min_dp = 3
         self.running = True
+
         def book_close():
             self.running = False
+
         self.book = TwistyBook(self.product, shutdown_func=book_close)
         self.engine = PurchaseEngine(self.product, self.client, self.book, hold_back=600.0)
 
@@ -51,8 +53,9 @@ class Twisty():
             if not algo or tick_count % window == 0:
                 win_warm = int(window * 1.1)
                 prices = historic_prices(self.client, self.product, win_warm, granularity=self.monitor_every)
+
+                # Select signal generation algorithm here
                 algo = get_PriceWatchOscillator(prices[-win_warm:])
-                #algo = get_StochasticOscillator(prices[-win_warm:])
 
                 algo.tick(prices[-1] + 0.01) # HACK!
                 

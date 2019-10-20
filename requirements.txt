@@ -1,0 +1,10 @@
+cbpro
+jupyter
+matplotlib
+numpy
+pandas
+python-dateutil
+pytz
+requests
+scipy
+sklearn
